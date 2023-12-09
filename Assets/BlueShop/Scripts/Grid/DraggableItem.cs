@@ -11,11 +11,21 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [SerializeField] private Image itemIcon;
     public ItemData itemData;
     private Transform oldParent;
-    private bool isSelected;
+    public bool isSelected;
+    public InventorySlot slot;
 
     private void Awake()
     {
         itemIcon.sprite = itemData.icon;
+    }
+
+    private void Start()
+    {
+        if (!slot)
+        {
+            slot = transform.parent.GetComponent<InventorySlot>();
+            slot.item = this;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -24,7 +34,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             isSelected = false;
             return;
         }
-
+        
         isSelected = true;
         itemIcon.raycastTarget = false;
         oldParent = transform.parent;
@@ -66,6 +76,23 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (!isSelected) return;
         oldParent = newParent;
+    }
+
+    public bool CanSwitch()
+    {
+        return parentGrid.CheckCanDrag(this);
+    }
+    public void SwitchSlot(InventorySlot newSlot)
+    {
+        isSelected = true;
+        parentGrid.OnItemSelected(this);
+        slot = newSlot;
+        slot.item = this;
+        SetNewParent(newSlot.transform);
+        SetNewGrid(newSlot.parentGrid);
+        parentGrid.OnItemDeselected(this);
+        ResetItem();
+        isSelected = false;
     }
 
     private void OnDisable()
