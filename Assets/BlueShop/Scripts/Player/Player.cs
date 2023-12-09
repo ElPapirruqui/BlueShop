@@ -36,6 +36,11 @@ public class Player : MonoBehaviour
         return playerInventory.gold;
     }
 
+    public void UpdateGold(int gold)
+    {
+        playerInventory.UpdateGold(gold);
+    }
+
     private void MovePlayer()
     {
         if(!playerController || !playerMovement)

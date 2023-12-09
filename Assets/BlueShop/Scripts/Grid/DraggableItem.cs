@@ -11,7 +11,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [SerializeField] private Image itemIcon;
     public ItemData itemData;
     private Transform oldParent;
-    private Transform selectedItem;
+    private bool isSelected;
 
     private void Awake()
     {
@@ -21,28 +21,28 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!parentGrid.CheckCanDrag(this)) {
-            selectedItem = null;
+            isSelected = false;
             return;
-        } 
+        }
 
-        selectedItem = transform;
+        isSelected = true;
         itemIcon.raycastTarget = false;
-        oldParent = selectedItem.parent;
-        selectedItem.SetParent(MenuManager.Instance.transform);
-        selectedItem.SetAsLastSibling();
+        oldParent = transform.parent;
+        transform.SetParent(MenuManager.Instance.transform);
+        transform.SetAsLastSibling();
 
         parentGrid.OnItemSelected(this);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!selectedItem) return;
+        if (!isSelected) return;
         transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!selectedItem) return;
+        if (!isSelected) return;
         parentGrid.OnItemDeselected(this);
         ResetItem();   
     }
@@ -50,22 +50,30 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void ResetItem()
     {
         itemIcon.raycastTarget = true;
-        if (!selectedItem) return;
-        selectedItem.SetParent(oldParent);
-        selectedItem.localPosition = Vector3.zero;
-        selectedItem = null;
+        if (!isSelected) return;
+        transform.SetParent(oldParent);
+        transform.localPosition = Vector3.zero;
+        isSelected = false;
     }
 
     public void SetNewGrid(Grid newParentGrid)
     {
-        if (!selectedItem) return;
+        if (!isSelected) return;
         parentGrid = newParentGrid;
     }
 
     public void SetNewParent(Transform newParent)
     {
-        if (!selectedItem) return;
+        if (!isSelected) return;
         oldParent = newParent;
+    }
+
+    private void OnDisable()
+    {
+        if (isSelected)
+        {
+            parentGrid.OnItemDeselected(this);
+        }
     }
 
     private void OnEnable()

@@ -1101,7 +1101,7 @@ Transform:
   m_GameObject: {fileID: 150593423}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1515099504}
@@ -1148,7 +1148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1814275456, guid: 3f1b9ca9a49c0c041b844524a48d5c1a, type: 3}
+  m_Sprite: {fileID: -529595605, guid: a92811abb5ceb4b4bbd23531545e541a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4336,6 +4336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGrid: {fileID: 1732831158}
   equipement: {fileID: 1189034092}
+  goldText: {fileID: 1717178168}
   gold: 100
 --- !u!1 &1264979601
 GameObject:
@@ -5329,7 +5330,7 @@ Transform:
   m_GameObject: {fileID: 1491994134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.4}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2049311967}
@@ -5376,7 +5377,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1937982687, guid: 3f1b9ca9a49c0c041b844524a48d5c1a, type: 3}
+  m_Sprite: {fileID: -2044081416, guid: a92811abb5ceb4b4bbd23531545e541a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

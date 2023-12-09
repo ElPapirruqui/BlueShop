@@ -26,7 +26,9 @@ public class MenuManager : MonoBehaviour
 
     private void CurrentShopGrid_OnTransaction(object sender, GridShop.OnTransactionEventArgs e)
     {
-        Debug.Log(e.item.name);
+        int gold = e.item.itemData.price;
+        gold = e.enabled ? gold * -1 : gold;
+        player.UpdateGold(gold);
     }
 
     public int GetPlayerGold()
