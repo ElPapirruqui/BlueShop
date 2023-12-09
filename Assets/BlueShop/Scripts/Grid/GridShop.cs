@@ -19,7 +19,7 @@ public class GridShop : Grid
             item = item,
             enabled = true
         });
-        base.OnItemDeselected(item);
+        base.OnItemSelected(item);
     }
 
     public override void OnItemDeselected(DraggableItem item)
@@ -35,7 +35,7 @@ public class GridShop : Grid
 
     public override bool CheckCanDrag(DraggableItem item)
     {
-        int playerGold = MenuManager.Instance.GetPlayerGold();
+        int playerGold = MenuManager.Instance.player.GetGold();
         return playerGold >= item.itemData.price;
     }
 }

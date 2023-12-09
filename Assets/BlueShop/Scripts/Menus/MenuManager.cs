@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    public Player player;
     [SerializeField] private GridShop currentShopGrid;
+
     public static MenuManager Instance { get; private set; }
     private void Awake()
     {
@@ -31,8 +32,4 @@ public class MenuManager : MonoBehaviour
         player.UpdateGold(gold);
     }
 
-    public int GetPlayerGold()
-    {
-        return player.GetGold();
-    }
 }

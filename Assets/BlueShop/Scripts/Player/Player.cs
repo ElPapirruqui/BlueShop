@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerCollisions playerCollisions;
     [SerializeField] private PlayerInteractor playerInteractor;
     [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private SpriteRenderer playerHat;
 
     private void Start()
     {
@@ -39,6 +40,18 @@ public class Player : MonoBehaviour
     public void UpdateGold(int gold)
     {
         playerInventory.UpdateGold(gold);
+    }
+
+    public void EquipItem(ItemData item, bool equip = true)
+    {
+        if (equip)
+        {
+            playerHat.sprite = item.icon;
+        }
+        else {
+            playerHat.sprite = null;
+        }
+        
     }
 
     private void MovePlayer()
