@@ -8,4 +8,9 @@ public class BaseInteraction : MonoBehaviour
     {
         return;
     }
+
+    public virtual void StopInteraction()
+    {
+        return;
+    }
 }

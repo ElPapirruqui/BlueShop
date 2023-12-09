@@ -11,6 +11,12 @@ public class ShopInteraction : BaseInteraction
         ToggleShopMenu(true);
     }
 
+    public override void StopInteraction()
+    {
+        base.StopInteraction();
+        ToggleShopMenu(false);
+    }
+
     public void ToggleShopMenu(bool enabled)
     {
         if (!shopMenu)

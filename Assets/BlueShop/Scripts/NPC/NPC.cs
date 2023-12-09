@@ -38,5 +38,11 @@ public class NPC : MonoBehaviour, IInteractable
         }
 
         interactUI.SetActive(enabled);
+
+        var interact = GetInteraction();
+        if (!enabled && interact != null)
+        {
+            interact.StopInteraction();
+        }
     }
 }

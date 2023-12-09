@@ -6,7 +6,7 @@ public class Grid : MonoBehaviour
 {
     [SerializeField] private GameObject slotPrefab;
     [SerializeField] private int slotsCount;
-    [SerializeField] private List<GameObject> slotsList;
+    [SerializeField] private List<InventorySlot> slotsList;
 
     public void BuildGrid()
     {
@@ -18,7 +18,11 @@ public class Grid : MonoBehaviour
             var cellTransform = newCell.transform;
             cellTransform.SetParent(transform);
             cellTransform.localScale = new Vector3(1, 1, 1);
-            slotsList.Add(newCell);
+            InventorySlot inventorySlot = newCell.GetComponent<InventorySlot>();
+            if (!inventorySlot) return;
+
+            slotsList.Add(inventorySlot);
+            inventorySlot.parentGrid = this;
         }
     }
 
