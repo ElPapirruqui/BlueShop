@@ -1,14 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour
 {
-    [SerializeField] private CircleCollider2D interactTrigger;
-    [SerializeField] private BoxCollider2D bodyCollision;
 
+    public event EventHandler<OnTriggerChangeEventArgs> OnTriggerChange;
+    public class OnTriggerChangeEventArgs : EventArgs
+    {
+        public Collider2D collider;
+        public bool enabled;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
+        OnTriggerChange?.Invoke(this, new OnTriggerChangeEventArgs {
+            collider = collision,
+            enabled = true
+        });;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        OnTriggerChange?.Invoke(this, new OnTriggerChangeEventArgs {
+            collider = collision,
+            enabled = false
+        });
     }
 }
