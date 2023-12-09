@@ -18,7 +18,15 @@ public class ShopInteraction : BaseInteraction
 
     public void ToggleShopMenu(bool enabled)
     {
-        GameManager.Instance.menuManager.ToggleShopUI(enabled);
-        GameManager.Instance.menuManager.TogglePlayerUI(enabled);
+        if (enabled)
+        {
+            GameManager.Instance.menuManager.ToggleShopUI(true);
+            GameManager.Instance.menuManager.TogglePlayerUI(true);
+        }
+        else
+        {
+            GameManager.Instance.menuManager.ToggleShopUI(false);
+        }
+        
     }
 }

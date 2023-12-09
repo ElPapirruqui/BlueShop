@@ -5,8 +5,9 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
 
-    [SerializeField] public ShopInventory shopUI;
-    [SerializeField] public PlayerInventory playerUI;
+    public ShopInventory shopUI;
+    public PlayerInventory playerUI;
+
     private void Start()
     {
         shopUI.shopGrid.OnTransaction += CurrentShopGrid_OnTransaction;
@@ -26,7 +27,7 @@ public class MenuManager : MonoBehaviour
 
     public void TogglePlayerUI(bool enabled)
     {
-        ToggleMenu(shopUI.gameObject, enabled);
+        ToggleMenu(playerUI.gameObject, enabled);
     }
 
     private void ToggleMenu(GameObject menu, bool enabled)
@@ -38,10 +39,12 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            shopUI.gameObject.SetActive(false);
-            shopUI.gameObject.SetActive(false);
-            gameObject.SetActive(false);
+            if (menu.activeInHierarchy) { 
+                shopUI.gameObject.SetActive(false);
+                shopUI.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+            }
         }
-        
     }
+
 }
