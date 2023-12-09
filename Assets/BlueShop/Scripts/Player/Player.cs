@@ -8,9 +8,9 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerCollisions playerCollisions;
     [SerializeField] private PlayerInteractor playerInteractor;
-    [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private SpriteRenderer playerHat;
 
+    private int gold = 100;
     private void Start()
     {
         if (!playerController || !playerCollisions)
@@ -29,17 +29,13 @@ public class Player : MonoBehaviour
 
     public int GetGold()
     {
-        if (!playerInventory)
-        {
-            Debug.LogError("No playerInventory found");
-            return 0;
-        }
-        return playerInventory.gold;
+        return gold;
     }
 
     public void UpdateGold(int gold)
     {
-        playerInventory.UpdateGold(gold);
+        this.gold += gold;
+        GameManager.Instance.menuManager.playerUI.UpdateGoldText(this.gold);
     }
 
     public void EquipItem(ItemData item, bool equip = true)

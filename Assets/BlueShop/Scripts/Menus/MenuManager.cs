@@ -4,32 +4,44 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    public Player player;
-    [SerializeField] private GridShop currentShopGrid;
 
-    public static MenuManager Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
-
+    [SerializeField] public ShopInventory shopUI;
+    [SerializeField] public PlayerInventory playerUI;
     private void Start()
     {
-        currentShopGrid.OnTransaction += CurrentShopGrid_OnTransaction;
+        shopUI.shopGrid.OnTransaction += CurrentShopGrid_OnTransaction;
     }
 
     private void CurrentShopGrid_OnTransaction(object sender, GridShop.OnTransactionEventArgs e)
     {
         int gold = e.item.itemData.price;
         gold = e.enabled ? gold * -1 : gold;
-        player.UpdateGold(gold);
+        GameManager.Instance.player.UpdateGold(gold);
     }
 
+    public void ToggleShopUI(bool enabled)
+    {
+        ToggleMenu(shopUI.gameObject, enabled);
+    }
+
+    public void TogglePlayerUI(bool enabled)
+    {
+        ToggleMenu(shopUI.gameObject, enabled);
+    }
+
+    private void ToggleMenu(GameObject menu, bool enabled)
+    {
+        if (enabled)
+        {
+            menu.SetActive(true);
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            shopUI.gameObject.SetActive(false);
+            shopUI.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
+        
+    }
 }

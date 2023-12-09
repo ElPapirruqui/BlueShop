@@ -35,7 +35,7 @@ public class GridShop : Grid
 
     public override bool CheckCanDrag(DraggableItem item)
     {
-        int playerGold = MenuManager.Instance.player.GetGold();
+        int playerGold = GameManager.Instance.player.GetGold();
         return playerGold >= item.itemData.price;
     }
 }

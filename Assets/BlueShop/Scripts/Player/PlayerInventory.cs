@@ -17,21 +17,16 @@ public class PlayerInventory : MonoBehaviour
 
     private void Equipement_OnEquip(object sender, GridEquipement.OnEquipEventArgs e)
     {
-        MenuManager.Instance.player.EquipItem(e.itemData, e.enabled);
+        GameManager.Instance.player.EquipItem(e.itemData, e.enabled);
     }
 
-    public void UpdateGold(int gold)
-    {
-        this.gold += gold;
-        UpdateGoldText();
-    }
-
-    private void UpdateGoldText()
+    public void UpdateGoldText(int gold)
     {
         goldText.SetText(gold.ToString());
     }
     private void OnEnable()
     {
-        UpdateGoldText();
+        int gold = GameManager.Instance.player.GetGold();
+        UpdateGoldText(gold);
     }
 }

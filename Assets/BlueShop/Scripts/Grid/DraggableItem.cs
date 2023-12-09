@@ -38,7 +38,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         isSelected = true;
         itemIcon.raycastTarget = false;
         oldParent = transform.parent;
-        transform.SetParent(MenuManager.Instance.transform);
+        transform.SetParent(GameManager.Instance.menuManager.transform);
         transform.SetAsLastSibling();
 
         parentGrid.OnItemSelected(this);
