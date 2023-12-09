@@ -107,10 +107,10 @@ TextureImporter:
       name: hats2_0
       rect:
         serializedVersion: 2
-        x: 74
-        y: 322
-        width: 157
-        height: 157
+        x: 58
+        y: 318
+        width: 187
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: hats2_1
       rect:
         serializedVersion: 2
-        x: 283
-        y: 323
-        width: 177
-        height: 135
+        x: 277
+        y: 307
+        width: 187
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,9 +150,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 322
+        y: 298
         width: 187
-        height: 115
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,10 +170,10 @@ TextureImporter:
       name: hats2_3
       rect:
         serializedVersion: 2
-        x: 751
-        y: 333
-        width: 177
-        height: 104
+        x: 744
+        y: 306
+        width: 187
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,10 +191,10 @@ TextureImporter:
       name: hats2_4
       rect:
         serializedVersion: 2
-        x: 74
-        y: 114
-        width: 157
-        height: 126
+        x: 58
+        y: 94
+        width: 187
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: hats2_5
       rect:
         serializedVersion: 2
-        x: 282
-        y: 114
-        width: 178
-        height: 147
+        x: 278
+        y: 104
+        width: 187
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: hats2_7
       rect:
         serializedVersion: 2
-        x: 751
-        y: 125
-        width: 177
-        height: 125
+        x: 744
+        y: 98
+        width: 187
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

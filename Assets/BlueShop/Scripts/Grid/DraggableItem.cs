@@ -9,11 +9,22 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [SerializeField] private Grid parentGrid;
     [SerializeField] private Image itemIcon;
+    public ItemData itemData;
     private Transform oldParent;
     private Transform selectedItem;
 
+    private void Awake()
+    {
+        itemIcon.sprite = itemData.icon;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!parentGrid.CheckCanDrag(this)) {
+            selectedItem = null;
+            return;
+        } 
+
         selectedItem = transform;
         itemIcon.raycastTarget = false;
         oldParent = selectedItem.parent;
@@ -31,6 +42,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!selectedItem) return;
         parentGrid.OnItemDeselected(this);
         ResetItem();   
     }
@@ -46,11 +58,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void SetNewGrid(Grid newParentGrid)
     {
+        if (!selectedItem) return;
         parentGrid = newParentGrid;
     }
 
     public void SetNewParent(Transform newParent)
     {
+        if (!selectedItem) return;
         oldParent = newParent;
     }
 

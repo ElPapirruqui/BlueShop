@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerCollisions playerCollisions;
-    [SerializeField] private PlayerInteractor playerInteractor;    
+    [SerializeField] private PlayerInteractor playerInteractor;
+    [SerializeField] private PlayerInventory playerInventory;
 
     private void Start()
     {
@@ -23,6 +24,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovePlayer();
+    }
+
+    public int GetGold()
+    {
+        if (!playerInventory)
+        {
+            Debug.LogError("No playerInventory found");
+            return 0;
+        }
+        return playerInventory.gold;
     }
 
     private void MovePlayer()

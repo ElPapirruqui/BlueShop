@@ -28,4 +28,9 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log(e.item.name);
     }
+
+    public int GetPlayerGold()
+    {
+        return player.GetGold();
+    }
 }

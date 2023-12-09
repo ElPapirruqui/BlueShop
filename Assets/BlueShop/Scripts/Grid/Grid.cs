@@ -38,6 +38,11 @@ public class Grid : MonoBehaviour
         }
     }
 
+    public virtual bool CheckCanDrag(DraggableItem item)
+    {
+        return true;
+    }
+
     public virtual void OnItemSelected(DraggableItem item)
     {
         

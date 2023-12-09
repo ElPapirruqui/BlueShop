@@ -32,4 +32,10 @@ public class GridShop : Grid
         });
         base.OnItemDeselected(item);
     }
+
+    public override bool CheckCanDrag(DraggableItem item)
+    {
+        int playerGold = MenuManager.Instance.GetPlayerGold();
+        return playerGold >= item.itemData.price;
+    }
 }
