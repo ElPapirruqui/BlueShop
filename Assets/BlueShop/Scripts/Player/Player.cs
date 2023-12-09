@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        if (!playerController || !playerCollisions)
+        {
+            Debug.LogError("No playerController or playerCollisions found");
+            return;
+        }
         playerController.OnInteractAction += PlayerController_OnInteractAction;
         playerCollisions.OnTriggerChange += PlayerCollisions_OnTriggerChange;
     }
@@ -34,11 +39,21 @@ public class Player : MonoBehaviour
 
     private void PlayerController_OnInteractAction(object sender, System.EventArgs e)
     {
+        if (!playerInteractor)
+        {
+            Debug.LogError("No playerInteractor found");
+            return;
+        }
         playerInteractor.Interact();
     }
 
     private void PlayerCollisions_OnTriggerChange(object sender, PlayerCollisions.OnTriggerChangeEventArgs e)
     {
+        if (!playerInteractor)
+        {
+            Debug.LogError("No playerInteractor found");
+            return;
+        }
         playerInteractor.SetInteractor(e.collider.gameObject, e.enabled);
     }
 }
