@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Grid))]
+[CustomEditor(typeof(Grid), true)]
 public class GridEditor : Editor
 {
     public override void OnInspectorGUI()

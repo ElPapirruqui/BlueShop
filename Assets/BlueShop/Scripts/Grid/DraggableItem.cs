@@ -19,6 +19,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         oldParent = selectedItem.parent;
         selectedItem.SetParent(MenuManager.Instance.transform);
         selectedItem.SetAsLastSibling();
+
+        parentGrid.OnItemSelected(this);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -29,6 +31,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        parentGrid.OnItemDeselected(this);
         ResetItem();   
     }
 

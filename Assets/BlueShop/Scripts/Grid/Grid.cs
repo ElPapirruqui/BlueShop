@@ -36,4 +36,14 @@ public class Grid : MonoBehaviour
             DestroyImmediate(child);
         }
     }
+
+    public virtual void OnItemSelected(DraggableItem item)
+    {
+
+    }
+
+    public virtual void OnItemDeselected(DraggableItem item)
+    {
+
+    }
 }
