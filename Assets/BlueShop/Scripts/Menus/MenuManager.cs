@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private Player player;
+    [SerializeField] private GridShop currentShopGrid;
     public static MenuManager Instance { get; private set; }
     private void Awake()
     {
@@ -15,5 +17,15 @@ public class MenuManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
+        currentShopGrid.OnTransaction += CurrentShopGrid_OnTransaction;
+    }
+
+    private void CurrentShopGrid_OnTransaction(object sender, GridShop.OnTransactionEventArgs e)
+    {
+        Debug.Log(e.item.name);
     }
 }

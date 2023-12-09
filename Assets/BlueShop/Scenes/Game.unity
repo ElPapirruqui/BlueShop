@@ -7414,6 +7414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d23aa1750e7c76479a8c1b17d4060f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2049311968}
+  currentShopGrid: {fileID: 431405313}
 --- !u!1 &2021121475
 GameObject:
   m_ObjectHideFlags: 0
