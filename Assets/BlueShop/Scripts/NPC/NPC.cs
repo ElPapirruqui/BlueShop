@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
+    [SerializeField] private GameObject interactionUI;
+
+    public GameObject GetInteractionUI()
+    {
+        return interactionUI;
+    }
+
     public void Interact(){
         Debug.Log($"Interacting with {gameObject.name}");
     }
 
     public void ToggleInteraction(bool enabled)
     {
-        if (enabled)
-        {
-            Debug.Log("interact YES");
-        }
-        else
-        {
-            Debug.Log("interact NO");
-        }
+        GetInteractionUI().SetActive(enabled);
     }
 }
