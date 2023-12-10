@@ -6,10 +6,11 @@ public class SignInteraction : BaseInteraction
 {
     [SerializeField] private string message;
     [SerializeField] private InteractUI popupUI;
+    [SerializeField] private float offset = 0.0f;
     public override void RunInteraction()
     {
         base.RunInteraction();
-        popupUI.UpdateUI(message, transform, 0.0f);
+        popupUI.UpdateUI(message, transform, offset);
         popupUI.ToggleUI(true);
     }
 
