@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public void TogglePause()
     {
         isGamePaused = !isGamePaused;
+        menuManager.ToggleMainMenu(isGamePaused);
         if (isGamePaused)
         {
             Time.timeScale = 0.0f;
@@ -51,6 +52,11 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1.0f;
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 

@@ -380,8 +380,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d23aa1750e7c76479a8c1b17d4060f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1847247134}
   player: {fileID: 2049311968}
   menuManager: {fileID: 2007828868}
+  audioManager: {fileID: 0}
+  itemPrefab: {fileID: 0}
 --- !u!4 &28858590
 Transform:
   m_ObjectHideFlags: 0
@@ -5660,6 +5663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interaction: {fileID: 1515099507}
   interactionUI: {fileID: 1617601740}
+  offsetUI: 0
 --- !u!114 &1515099507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5672,6 +5676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736d50cf317645418f9df2b714bd840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionName: trade
 --- !u!1 &1529454445
 GameObject:
   m_ObjectHideFlags: 0
@@ -8028,6 +8033,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopUI: {fileID: 1781276720}
   playerUI: {fileID: 1254255965}
+  itemDescUI: {fileID: 0}
+  mainMenuUI: {fileID: 0}
 --- !u!1 &2021121475
 GameObject:
   m_ObjectHideFlags: 0
@@ -8171,7 +8178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1fe362f4d927d47bae00e90d0a340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1847247134}
   playerMovement: {fileID: 2049311969}
   playerCollisions: {fileID: 2049311973}
   playerInteractor: {fileID: 2049311974}
@@ -8189,6 +8195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  rigidBody: {fileID: 2049311970}
 --- !u!50 &2049311970
 Rigidbody2D:
   serializedVersion: 4

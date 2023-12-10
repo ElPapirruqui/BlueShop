@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
     public ShopInventory shopUI;
     public PlayerInventory playerUI;
     public ItemDescUI itemDescUI;
+    public GameObject mainMenuUI;
 
     private void Start()
     {
@@ -36,6 +37,11 @@ public class MenuManager : MonoBehaviour
     public void TogglePlayerUI(bool enabled)
     {
         ToggleMenu(playerUI.gameObject, enabled);
+    }
+
+    public void ToggleMainMenu(bool enabled)
+    {
+        mainMenuUI.SetActive(enabled);
     }
 
     private void ToggleMenu(GameObject menu, bool enabled)
