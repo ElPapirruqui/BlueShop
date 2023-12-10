@@ -6,6 +6,6 @@ public interface IInteractable
 {
     public void Interact();
     public void ToggleInteraction(bool enabled);
-    public GameObject GetInteractionUI();
+    public InteractUI GetInteractionUI();
     public BaseInteraction GetInteraction();
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] private BaseInteraction interaction;
-    [SerializeField] private GameObject interactionUI;
+    [SerializeField] private InteractUI interactionUI;
     [SerializeField] private float offsetUI = 0.0f;
 
     private void Awake()
     {
         var interactUI = GetInteractionUI();
-        interactUI.SetActive(false);
+        interactUI.gameObject.SetActive(false);
     }
 
     public BaseInteraction GetInteraction()
@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour, IInteractable
         return interaction;
     }
 
-    public GameObject GetInteractionUI()
+    public InteractUI GetInteractionUI()
     {
         return interactionUI;
     }
@@ -44,9 +44,8 @@ public class NPC : MonoBehaviour, IInteractable
             return;
         }
 
-        interactUI.SetActive(enabled);
-        interactUI.transform.SetParent(transform);
-        interactUI.transform.localPosition = new Vector2(0, offsetUI);
+        interactUI.UpdateUI(interaction.interactionName, transform, offsetUI);
+        interactUI.ToggleUI(enabled);
 
         var interact = GetInteraction();
         if (!enabled && interact != null)

@@ -34008,6 +34008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fecf7c1c0d55a84fab56f6236a07491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionName: read
   message: Dross' Hats Shop!
 --- !u!114 &1138930968
 MonoBehaviour:
@@ -34022,7 +34023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: {fileID: 1138930967}
-  interactionUI: {fileID: 1617601740}
+  interactionUI: {fileID: 1617601745}
   offsetUI: 0
 --- !u!212 &1138930969
 SpriteRenderer:
@@ -34311,7 +34312,7 @@ GameObject:
   - component: {fileID: 1182924491}
   - component: {fileID: 1182924490}
   m_Layer: 0
-  m_Name: Message
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38466,7 +38467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: {fileID: 1515099507}
-  interactionUI: {fileID: 1617601740}
+  interactionUI: {fileID: 1617601745}
   offsetUI: 0
 --- !u!114 &1515099507
 MonoBehaviour:
@@ -38480,6 +38481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736d50cf317645418f9df2b714bd840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionName: trade
 --- !u!1 &1529454445
 GameObject:
   m_ObjectHideFlags: 0
@@ -38674,6 +38676,7 @@ GameObject:
   - component: {fileID: 1617601744}
   - component: {fileID: 1617601743}
   - component: {fileID: 1617601742}
+  - component: {fileID: 1617601745}
   m_Layer: 0
   m_Name: InteractUI
   m_TagString: Untagged
@@ -38765,6 +38768,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 20
   m_TargetDisplay: 0
+--- !u!114 &1617601745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617601740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1ca4674ec80cc448536d9b048839bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameUI: {fileID: 1182924490}
 --- !u!1 &1636786968
 GameObject:
   m_ObjectHideFlags: 0

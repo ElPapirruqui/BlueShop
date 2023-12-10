@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseInteraction : MonoBehaviour
 {
+    public string interactionName;
     public virtual void RunInteraction()
     {
         return;
