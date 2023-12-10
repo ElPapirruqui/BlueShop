@@ -6,6 +6,7 @@ public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] private BaseInteraction interaction;
     [SerializeField] private GameObject interactionUI;
+    [SerializeField] private float offsetUI = 0.0f;
 
     private void Awake()
     {
@@ -44,6 +45,8 @@ public class NPC : MonoBehaviour, IInteractable
         }
 
         interactUI.SetActive(enabled);
+        interactUI.transform.SetParent(transform);
+        interactUI.transform.localPosition = new Vector2(0, offsetUI);
 
         var interact = GetInteraction();
         if (!enabled && interact != null)
