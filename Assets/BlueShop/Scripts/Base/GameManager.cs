@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public Player player;
     public MenuManager menuManager;
+    public AudioManager audioManager;
     public DraggableItem itemPrefab;
     public static GameManager Instance { get; private set; }
     private void Awake()

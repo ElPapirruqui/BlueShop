@@ -6,6 +6,7 @@ using UnityEngine;
 public class GridShop : Grid
 {
     public event EventHandler<OnTransactionEventArgs> OnTransaction;
+    public event EventHandler OnCantBuy;
     public class OnTransactionEventArgs : EventArgs
     {
         public DraggableItem item;
@@ -36,6 +37,14 @@ public class GridShop : Grid
     public override bool CheckCanDrag(DraggableItem item)
     {
         int playerGold = GameManager.Instance.player.GetGold();
-        return playerGold >= item.itemData.price;
+        bool canDrag = playerGold >= item.itemData.price;
+
+        if (!canDrag)
+        {
+            OnCantBuy?.Invoke(this, EventArgs.Empty);
+            return false;
+        }
+
+        return true;
     }
 }
