@@ -27,11 +27,6 @@ public class Player : MonoBehaviour
         MovePlayer();
     }
 
-    void Update()
-    {
-        //MovePlayer();
-    }
-
     public int GetGold()
     {
         return gold;
@@ -53,6 +48,11 @@ public class Player : MonoBehaviour
             playerHat.sprite = null;
         }
         
+    }
+
+    public bool IsWalking()
+    {
+        return playerMovement.IsMoving();
     }
 
     private void MovePlayer()
