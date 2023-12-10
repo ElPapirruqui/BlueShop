@@ -893,6 +893,18 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -30783,6 +30795,18 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -31089,6 +31113,18 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -31381,6 +31417,18 @@ PrefabInstance:
     - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
       propertyPath: m_SizeDelta.y
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5710299206876040668, guid: 019c46842e79d9346b1511d783a5df3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34201,7 +34249,7 @@ MonoBehaviour:
   interactionName: read
   message: Dross' Hats Shop!
   popupUI: {fileID: 1752329039}
-  offset: 0.5
+  offset: 0.25
 --- !u!114 &1138930968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40840,7 +40888,7 @@ MonoBehaviour:
   interactionName: talk
   message: howdy! it is a nice day, isn't it?
   popupUI: {fileID: 1752329039}
-  offset: 0.15
+  offset: 0.3
 --- !u!1 &1863169228
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,8 +15,6 @@ public class InteractUI : MonoBehaviour
     {
         nameUI.SetText(newName);
         transform.position = new Vector2(parent.position.x, parent.position.y + offset);
-        //transform.SetParent(parent);
-        //transform.localPosition = new Vector2(0, offset);
     }
 
     public void ToggleUI(bool enabled)
