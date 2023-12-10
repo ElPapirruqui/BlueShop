@@ -6,6 +6,11 @@ using TMPro;
 public class InteractUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameUI;
+
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     public void UpdateUI(string newName, Transform parent, float offset)
     {
         nameUI.SetText(newName);

@@ -8,12 +8,6 @@ public class NPC : MonoBehaviour, IInteractable
     [SerializeField] private InteractUI interactionUI;
     [SerializeField] private float offsetUI = 0.0f;
 
-    private void Awake()
-    {
-        var interactUI = GetInteractionUI();
-        interactUI.gameObject.SetActive(false);
-    }
-
     public BaseInteraction GetInteraction()
     {
         return interaction;
