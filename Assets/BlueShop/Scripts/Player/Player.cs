@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
+    private PlayerController playerController;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerCollisions playerCollisions;
     [SerializeField] private PlayerInteractor playerInteractor;
@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private int gold = 100;
     private void Start()
     {
+        playerController = GameManager.Instance.playerController;
         if (!playerController || !playerCollisions)
         {
             Debug.LogError("No playerController or playerCollisions found");

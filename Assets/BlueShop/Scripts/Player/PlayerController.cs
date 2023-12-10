@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public event EventHandler OnInteractAction;
+    public event EventHandler OnPauseAction;
+    public event EventHandler OnMenuPerformed;
     private PlayerInputActions playerInputActions;
 
     private void Awake()
@@ -14,12 +16,17 @@ public class PlayerController : MonoBehaviour
         playerInputActions.Player.Enable();
         playerInputActions.Player.Interact.performed += Interact_performed;
         playerInputActions.Player.Menu.performed += Menu_performed;
+        playerInputActions.Player.Pause.performed += Pause_performed;
+    }
+
+    private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnPauseAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void Menu_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        bool enabled = GameManager.Instance.menuManager.playerUI.gameObject.activeInHierarchy;
-        GameManager.Instance.menuManager.TogglePlayerUI(!enabled);
+        OnMenuPerformed?.Invoke(this, EventArgs.Empty); 
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
