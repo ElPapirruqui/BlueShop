@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
         return gold;
     }
 
+    public void PickupItem(ItemData itemData)
+    {
+        GameManager.Instance.menuManager.playerUI.AddItem(itemData);
+    }
+
     public void UpdateGold(int gold)
     {
         this.gold += gold;

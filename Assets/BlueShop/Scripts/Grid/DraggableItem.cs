@@ -16,7 +16,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void Awake()
     {
-        itemIcon.sprite = itemData.icon;
+        Init();
     }
 
     private void Start()
@@ -26,6 +26,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             slot = transform.parent.GetComponent<InventorySlot>();
             slot.item = this;
         }
+    }
+
+    public void Init()
+    {
+        if (!itemData) return;
+
+        itemIcon.sprite = itemData.icon;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -80,17 +87,19 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public bool CanSwitch()
     {
+        if (!parentGrid) return true;
+
         return parentGrid.CheckCanDrag(this);
     }
     public void SwitchSlot(InventorySlot newSlot)
     {
         isSelected = true;
-        parentGrid.OnItemSelected(this);
+        if(parentGrid) parentGrid.OnItemSelected(this);
         slot = newSlot;
         slot.item = this;
         SetNewParent(newSlot.transform);
         SetNewGrid(newSlot.parentGrid);
-        parentGrid.OnItemDeselected(this);
+        if (parentGrid) parentGrid.OnItemDeselected(this);
         ResetItem();
         isSelected = false;
     }

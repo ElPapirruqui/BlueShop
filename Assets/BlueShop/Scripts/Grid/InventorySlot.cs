@@ -11,19 +11,26 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     {
         GameObject dropped = eventData.pointerDrag;
         DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+        AssingItem(draggableItem);
+    }
 
-        if (draggableItem.isSelected) { 
-            if (item) {
-                if (item.CanSwitch() && draggableItem.CanSwitch()) { 
-                    SetNewParents(draggableItem);
-                    item.SwitchSlot(draggableItem.slot);
-                    ReasignItem(draggableItem);
+    public void AssingItem(DraggableItem newItem)
+    {
+        if (newItem.isSelected)
+        {
+            if (item)
+            {
+                if (item.CanSwitch() && newItem.CanSwitch())
+                {
+                    SetNewParents(newItem);
+                    item.SwitchSlot(newItem.slot);
+                    ReasignItem(newItem);
                 }
             }
             else
             {
-                SetNewParents(draggableItem);
-                ReasignItem(draggableItem, true);
+                SetNewParents(newItem);
+                ReasignItem(newItem, true);
             }
         }
     }

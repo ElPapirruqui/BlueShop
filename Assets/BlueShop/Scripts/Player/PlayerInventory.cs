@@ -24,6 +24,11 @@ public class PlayerInventory : MonoBehaviour
     {
         goldText.SetText(gold.ToString());
     }
+
+    public void AddItem(ItemData newItem)
+    {
+        playerGrid.AddItem(newItem);
+    }
     private void OnEnable()
     {
         int gold = GameManager.Instance.player.GetGold();

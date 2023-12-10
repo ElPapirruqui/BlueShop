@@ -38,6 +38,20 @@ public class Grid : MonoBehaviour
         }
     }
 
+    public void AddItem(ItemData itemData){
+        foreach(InventorySlot slot in slotsList)
+        {
+            if(slot.item == null)
+            {
+                DraggableItem newItem = Instantiate(GameManager.Instance.itemPrefab);
+                newItem.itemData = itemData;
+                newItem.Init();
+                newItem.SwitchSlot(slot);
+                return;
+            }
+        }
+    }
+
     public virtual bool CheckCanDrag(DraggableItem item)
     {
         return true;
