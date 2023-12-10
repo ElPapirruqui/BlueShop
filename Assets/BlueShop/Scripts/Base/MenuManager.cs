@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
 
     public ShopInventory shopUI;
     public PlayerInventory playerUI;
+    public ItemDescUI itemDescUI;
 
     private void Start()
     {

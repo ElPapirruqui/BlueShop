@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField] private Grid parentGrid;
@@ -116,5 +116,17 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         SetNewParent(oldParent);
         ResetItem();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log($"mouse in: {itemData.name}");
+        GameManager.Instance.menuManager.itemDescUI.Show(eventData.position, itemData.name, itemData.price.ToString());
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("mouse out");
+        GameManager.Instance.menuManager.itemDescUI.Hide();
     }
 }
