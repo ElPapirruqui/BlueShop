@@ -22,9 +22,14 @@ public class Player : MonoBehaviour
         playerCollisions.OnTriggerChange += PlayerCollisions_OnTriggerChange;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         MovePlayer();
+    }
+
+    void Update()
+    {
+        //MovePlayer();
     }
 
     public int GetGold()
